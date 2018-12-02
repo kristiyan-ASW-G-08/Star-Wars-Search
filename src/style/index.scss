@@ -13,7 +13,7 @@
 }
 //I'm using css variables instead of scss ones so i can manupulate them with js
 :root {
-  --primary: var(rgb(79, 101, 199));
+  --primary: rgb(79, 101, 199);
 }
 body {
   font-size: 10px;
