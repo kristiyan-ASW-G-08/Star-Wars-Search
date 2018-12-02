@@ -1,0 +1,20 @@
+.card {
+  width: 85%;
+  @include flex-center;
+  font-size: 1.2rem;
+  list-style: none;
+  border: solid 2px var(--primary);
+  :first-child {
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+    background: var(--primary);
+    color: $light;
+    border-bottom-left-radius: 9rem;
+    border-bottom-right-radius: 9rem;
+    font-weight: bold;
+  }
+  li {
+    padding: 0.5rem;
+  }
+}
