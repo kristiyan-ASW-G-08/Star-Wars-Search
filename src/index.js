@@ -23,5 +23,5 @@ searchForm.addEventListener('submit', e => {
       }
       cardSection.appendChild(card);
     })
-    .catch(error => displayError(error));
+    .catch(error => displayError("Sorry there was an error!!!"));
 });
