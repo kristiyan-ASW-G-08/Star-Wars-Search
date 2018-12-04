@@ -37,7 +37,7 @@ describe('index', () => {
     const title = await page.title();
     expect(title).toMatch('Star Wars Search');
   });
-  describe('searching for device', () => {
+  describe('searching for death star plans', () => {
     let card;
     beforeAll(async () => {
       await page.waitForSelector('.search-form');
