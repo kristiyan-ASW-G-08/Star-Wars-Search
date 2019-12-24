@@ -7,17 +7,21 @@
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html",
-    "test": "jest --watchAll"
+    "test": "jest --watchAll",
+    "deploy": "gh-pages -d dist"
   },
+  "homepage": "https://krisScript.github.io/StarWarsSearch",
   "dependencies": {
     "@babel/runtime": "^7.1.5"
   },
   "devDependencies": {
     "@babel/core": "^7.1.6",
+    "@babel/plugin-proposal-object-rest-spread": "^7.7.7",
     "@babel/plugin-transform-runtime": "^7.1.0",
     "@babel/preset-env": "^7.1.6",
     "autoprefixer": "^9.3.1",
     "cssnano": "^4.1.7",
+    "gh-pages": "^2.0.1",
     "jest": "^23.6.0",
     "puppeteer": "^1.10.0",
     "sass": "^1.15.1"

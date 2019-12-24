@@ -1,37 +1,24 @@
-const processObject = obj => {
-  const processedObject = {};
-  Object.entries(obj).forEach(element => {
-    const first = element[0];
-    const second = element[1];
-    const urlRegex = RegExp('^(http|https):');
+export const processObject = obj => {
+  const unNeededKeys = ["edited", "created", "ur;"];
+  const urlRegex = RegExp("^(http|https):");
+  return Object.entries(obj).reduce((acc, [key, value]) => {
+    console.log(acc, key);
     if (
-      first !== 'edited' &&
-      first !== 'created' &&
-      first !== 'url' &&
-      second.length !== 0 &&
-      !Array.isArray(second) &&
-      !urlRegex.test(second)
+      !unNeededKeys.includes(key) &&
+      !Array.isArray(value) &&
+      !urlRegex.test(value)
     ) {
-      const str = element[0];
-      const procesedStr = str.split('_').join(' ');
-      processedObject[procesedStr] = element[1];
+      return { ...acc, [key.split("_").join(" ")]: value };
     }
-  });
-  return processedObject;
+    return acc;
+  }, {});
 };
-const capitalizeLetters = str => {
+export const capitalizeLetters = str => {
   return str
     .toLowerCase()
-    .split(' ')
+    .split(" ")
     .map(word => word[0].toUpperCase() + word.substr(1))
-    .join(' ');
+    .join(" ");
 };
-const setToLS = (target, value) => {
+export const setToLS = (target, value) =>
   localStorage.setItem(target, JSON.stringify(value));
-};
-const utilities = {
-  processObject,
-  capitalizeLetters,
-  setToLS
-};
-export default utilities;

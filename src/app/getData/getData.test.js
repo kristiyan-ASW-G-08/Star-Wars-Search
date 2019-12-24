@@ -1,12 +1,11 @@
-import getData from './getData';
-jest.mock('./getData');
-describe('getData', () => {
-  it('should fetch data', async () => {
-    const data = await getData();
-    expect(data).toEqual([
-      {
-        name: 'Death Star',
-      }
-    ]);
+import getData from "./getData";
+jest.mock("./getData");
+
+const mockData = [{ name: "Death Star" }];
+
+getData.mockResolvedValue(mockData);
+describe("getData", () => {
+  it("should fetch data", async () => {
+    await expect(getData()).resolves.toEqual(mockData);
   });
 });

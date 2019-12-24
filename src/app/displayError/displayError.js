@@ -1,10 +1,9 @@
 const displayError = alertMsg => {
   const body = document.body;
-  const alert = document.createElement('p');
-  alert.className = 'alert';
+  const alert = document.createElement("p");
+  alert.className = "alert";
   alert.textContent = alertMsg;
-  if (body.firstElementChild.className === 'alert') {
-  } else {
+  if (body.firstElementChild.className !== "alert") {
     body.insertBefore(alert, body.childNodes[0]);
     setTimeout(() => {
       alert.remove();
