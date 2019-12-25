@@ -7,20 +7,19 @@ import displayError from "./app/displayError/displayError";
 import switchSides from "./app/switchSides/switchSides";
 switchSides();
 const searchForm = document.querySelector(".search-form");
-searchForm.addEventListener("submit", e => {
+searchForm.addEventListener("submit", async e => {
   e.preventDefault();
   const { name, option } = e.target.elements;
   const url = `https://swapi.co/api/${option.value}/?search=${name.value}`;
   const cardSection = document.querySelector(".card-section");
-  getData(url)
-    .then(({ results }) => {
-      const card = createCard(processObject(results[0]));
-      if (cardSection.firstChild) {
-        cardSection.firstChild.remove();
-      }
-      cardSection.appendChild(card);
-    })
-    .catch(() =>
-      displayError("Error there was!How embarrassing how embarrassing!")
-    );
+  try {
+    const { results } = await getData(url);
+    const card = createCard(processObject(results[0]));
+    if (cardSection.firstChild) {
+      cardSection.firstChild.remove();
+    }
+    cardSection.appendChild(card);
+  } catch (err) {
+    displayError("Error there was!How embarrassing how embarrassing!");
+  }
 });
