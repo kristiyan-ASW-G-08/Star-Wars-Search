@@ -23,7 +23,7 @@
     "cssnano": "^4.1.7",
     "gh-pages": "^2.0.1",
     "jest": "^23.6.0",
-    "puppeteer": "^1.10.0",
+    "puppeteer": "^1.13.0",
     "sass": "^1.15.1"
   },
   "resolutions": {
